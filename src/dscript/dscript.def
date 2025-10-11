@@ -1,0 +1,12 @@
+LIBRARY   DSCRIPT
+DESCRIPTION "Chromium ChromeScript ECMA-262 scripting engine"
+
+EXPORTS
+   DllCanUnloadNow PRIVATE
+   DllGetClassObject PRIVATE
+   DllRegisterServer PRIVATE
+   DllUnregisterServer PRIVATE
+
+   
+   
+   
