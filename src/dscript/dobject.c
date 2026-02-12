@@ -15,7 +15,9 @@
  * Use at your own risk. There is no warranty, express or implied.
  */
 
+#if !defined(linux)
 #include <windows.h>
+#endif
 
 #include <stdio.h>
 #include <string.h>

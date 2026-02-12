@@ -57,6 +57,7 @@ struct CallContext;
 
 // VPTR_INDEX is the ith pointer where the vptr is stored in the Value object
 
+#if !defined(VPTR_INDEX)
 #ifdef __GNUC__
 #define VPTR_INDEX	3
 #endif
@@ -68,7 +69,7 @@ struct CallContext;
 #ifdef __DMC__
 #define VPTR_INDEX	0
 #endif
-
+#endif
 
 struct Value
 {
@@ -122,10 +123,6 @@ struct Value
 	((long *)to)[0] = ((long *)from)[0];
 	((long *)to)[2] = ((long *)from)[2];
 	((long *)to)[3] = ((long *)from)[3];
-#elif defined __GNUC__
-	((long long *)to)[0] = ((long long *)from)[0];
-	((long *)to)[3] = ((long *)from)[3];
-	// Don't copy padforgcc
 #else
 	memcpy(to, from, sizeof(Value));
 #endif

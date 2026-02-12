@@ -165,7 +165,7 @@ struct Lexer : Mem
     ~Lexer();
 
     static TOK isKeyword(dchar *s, unsigned len);
-    void initKeywords();
+    static void initKeywords();
     TOK nextToken();
     void insertSemicolon(dchar *loc);
     void rescan();

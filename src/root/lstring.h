@@ -31,7 +31,7 @@ struct Lstring
     unsigned length;
 
 #if defined __GNUC__
-    dchar string[1];
+    dchar string[];
 #else
     // Disable warning about nonstandard extension
     #pragma warning (disable : 4200)

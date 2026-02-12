@@ -1042,6 +1042,7 @@ BUILTIN_FUNCTION2(Dglobal_, readln, 0)
 
 BUILTIN_FUNCTION2(Dglobal_, getenv, 1)
 {
+#if !defined(linux)
     // Our own extension
     Value::copy(ret, &vundefined);
     if (argc)
@@ -1056,6 +1057,7 @@ BUILTIN_FUNCTION2(Dglobal_, getenv, 1)
 	else
 	    Value::copy(ret, &vnull);
     }
+#endif
     return NULL;
 }
 

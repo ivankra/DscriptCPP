@@ -1877,9 +1877,9 @@ Pool::Pool(unsigned npages)
 #endif
 	WPRINTF(L"GC fail: poolsize = x%x, errno = %d\n", poolsize, errno);
 #if USEROOT
-	PRINTF("message = '%s'\n", sys_errlist[errno]);
+	PRINTF("message = '%s'\n", strerror(errno));
 #else
-	printf("message = '%s'\n", sys_errlist[errno]);
+	printf("message = '%s'\n", strerror(errno));
 #endif
 	npages = 0;
 	poolsize = 0;

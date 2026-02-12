@@ -942,7 +942,7 @@ int File::read()
 #if defined(linux)
     ssize_t numread; // must be initialized before any "goto"
     off_t size;
-    struct stat buf;
+    struct stat64 buf;
 
     int result = 0;
     char *name = this->name->toChars();
@@ -961,7 +961,7 @@ int File::read()
     ref = 0;       // we own the buffer now
 
     //PRINTF("\tfile opened\n");
-    if (fstat(fd, &buf))
+    if (fstat64(fd, &buf))
     {
 	error(DTEXT("\tfstat error, errno = %d\n"),errno);
         goto err2;
